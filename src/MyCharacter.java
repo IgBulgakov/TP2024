@@ -20,35 +20,40 @@ public class MyCharacter {
     }
 
     public boolean isDigit() {
-        return Character.isDigit(this.value);
+        return value >= '0' && value <= '9';
     }
 
     public static boolean isDigit(char ch) {
-        return Character.isDigit(ch);
+        return ch >= '0' && ch <= '9';
     }
 
     public static boolean isLetter(char ch) {
-        return Character.isLetter(ch);
+        return (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z');
     }
 
     public static boolean isLetterOrDigit(char ch) {
-        return Character.isLetterOrDigit(ch);
+        return isLetter(ch) || isDigit(ch);
     }
 
     public static boolean isLowerCase(char ch) {
-        return Character.isLowerCase(ch);
+        return ch >= 'a' && ch <= 'z';
     }
 
     public static boolean isUpperCase(char ch) {
-        return Character.isUpperCase(ch);
+        return ch >= 'A' && ch <= 'Z';
     }
 
     public static char toUpperCase(char ch) {
-        return Character.toUpperCase(ch);
+        if (isLowerCase(ch)) {
+            return (char) (ch - ('a' - 'A'));
+        }
+        return ch;
     }
 
     public static char toLowerCase(char ch) {
-        return Character.toLowerCase(ch);
+        if (isUpperCase(ch)) {
+            return (char) (ch + ('a' - 'A'));
+        }
+        return ch;
     }
 }
-
